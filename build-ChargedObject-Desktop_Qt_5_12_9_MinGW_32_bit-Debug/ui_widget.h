@@ -28,7 +28,7 @@ public:
         Widget->resize(800, 600);
         startlistening = new QPushButton(Widget);
         startlistening->setObjectName(QString::fromUtf8("startlistening"));
-        startlistening->setGeometry(QRect(220, 220, 93, 28));
+        startlistening->setGeometry(QRect(110, 110, 93, 28));
 
         retranslateUi(Widget);
 

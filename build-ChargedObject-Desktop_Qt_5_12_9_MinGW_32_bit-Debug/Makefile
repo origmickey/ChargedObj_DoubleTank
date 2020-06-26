@@ -228,6 +228,7 @@ Makefile: ../ChargedObject/ChargedObject.pro E:/software/Qt5.12.9/5.12.9/mingw73
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/mkspecs/features/toolchain.prf \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/mkspecs/features/default_pre.prf \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/mkspecs/features/win32/default_pre.prf \
+		../ChargedObject/Library/JQLibrary/JQLibrary.pri \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/mkspecs/features/resolve_config.prf \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/mkspecs/features/exclusive_builds_post.prf \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/mkspecs/features/default_post.prf \
@@ -418,6 +419,7 @@ E:/software/Qt5.12.9/5.12.9/mingw73_32/mkspecs/features/exclusive_builds.prf:
 E:/software/Qt5.12.9/5.12.9/mingw73_32/mkspecs/features/toolchain.prf:
 E:/software/Qt5.12.9/5.12.9/mingw73_32/mkspecs/features/default_pre.prf:
 E:/software/Qt5.12.9/5.12.9/mingw73_32/mkspecs/features/win32/default_pre.prf:
+../ChargedObject/Library/JQLibrary/JQLibrary.pri:
 E:/software/Qt5.12.9/5.12.9/mingw73_32/mkspecs/features/resolve_config.prf:
 E:/software/Qt5.12.9/5.12.9/mingw73_32/mkspecs/features/exclusive_builds_post.prf:
 E:/software/Qt5.12.9/5.12.9/mingw73_32/mkspecs/features/default_post.prf:

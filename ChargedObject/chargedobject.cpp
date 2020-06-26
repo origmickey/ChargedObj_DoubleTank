@@ -8,6 +8,13 @@ ChargedObject::ChargedObject()
 ChargedObject::~ChargedObject()
 {
     delete serverSocket;
+
+    delete msg_processor;
+}
+
+void ChargedObject::Init()
+{
+    msg_processor = new data_processor;
 }
 
 void ChargedObject::StartListen()
@@ -21,17 +28,25 @@ void ChargedObject::AcceptConnection()
 {
     serverSocket = this->nextPendingConnection();
         //为服务端socket建立信号与槽以响应客户端来信
-    connect(serverSocket,SIGNAL(readyRead()),this,SLOT(ReplyToClient()));
+    connect(serverSocket,SIGNAL(readyRead()),this,SLOT(ReadMsg()));
 }
 
-void ChargedObject::ReplyToClient()
+void ChargedObject::ReadMsg()
 {
     //接收客户端信息
-    QString msg=QString(serverSocket->readAll());
+    QByteArray msg=QString(serverSocket->readAll()).toLatin1();
     //打印客户端来信
     qDebug()<<msg;
-    //构造回复字符串
-    const char * replyMsg="server:I am server,I got your message.";
-    //将回复字符串发送给客户端
-    serverSocket->write(replyMsg);
+
+    msg_processor->unpacker(msg);
+
+}
+
+void ChargedObject::SendMsg(QByteArray * data2send)
+{
+    if(serverSocket != nullptr && !data2send->isEmpty()) //确保有客户端连接，并且发送内容不为空
+        {
+            serverSocket->write(* data2send);   //发送消息到客户端
+    }
+
 }
