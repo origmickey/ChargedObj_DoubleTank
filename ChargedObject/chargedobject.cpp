@@ -3,6 +3,9 @@
 ChargedObject::ChargedObject()
 {
     serverSocket = new QTcpSocket;
+
+    this->Init();
+
 }
 
 ChargedObject::~ChargedObject()
@@ -34,9 +37,9 @@ void ChargedObject::AcceptConnection()
 void ChargedObject::ReadMsg()
 {
     //接收客户端信息
-    QByteArray msg=QString(serverSocket->readAll()).toLatin1();
+    QByteArray msg=serverSocket->readAll();
     //打印客户端来信
-    qDebug()<<msg;
+    qDebug()<<"msg is :"<<msg;
 
     msg_processor->unpacker(msg);
 
