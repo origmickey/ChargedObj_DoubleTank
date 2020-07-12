@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Widget_t {
-    QByteArrayData data[3];
-    char stringdata0[34];
+    QByteArrayData data[10];
+    char stringdata0[105];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,11 +32,20 @@ struct qt_meta_stringdata_Widget_t {
 static const qt_meta_stringdata_Widget_t qt_meta_stringdata_Widget = {
     {
 QT_MOC_LITERAL(0, 0, 6), // "Widget"
-QT_MOC_LITERAL(1, 7, 25), // "on_startlistening_clicked"
-QT_MOC_LITERAL(2, 33, 0) // ""
+QT_MOC_LITERAL(1, 7, 14), // "SlotDisconnect"
+QT_MOC_LITERAL(2, 22, 0), // ""
+QT_MOC_LITERAL(3, 23, 6), // "handle"
+QT_MOC_LITERAL(4, 30, 11), // "SlotConnect"
+QT_MOC_LITERAL(5, 42, 11), // "QTcpSocket*"
+QT_MOC_LITERAL(6, 54, 6), // "socket"
+QT_MOC_LITERAL(7, 61, 25), // "on_startlistening_clicked"
+QT_MOC_LITERAL(8, 87, 12), // "SlotReadData"
+QT_MOC_LITERAL(9, 100, 4) // "data"
 
     },
-    "Widget\0on_startlistening_clicked\0"
+    "Widget\0SlotDisconnect\0\0handle\0SlotConnect\0"
+    "QTcpSocket*\0socket\0on_startlistening_clicked\0"
+    "SlotReadData\0data"
 };
 #undef QT_MOC_LITERAL
 
@@ -46,7 +55,7 @@ static const uint qt_meta_data_Widget[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -54,10 +63,16 @@ static const uint qt_meta_data_Widget[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   19,    2, 0x08 /* Private */,
+       1,    1,   34,    2, 0x0a /* Public */,
+       4,    2,   37,    2, 0x0a /* Public */,
+       7,    0,   42,    2, 0x0a /* Public */,
+       8,    2,   43,    2, 0x0a /* Public */,
 
  // slots: parameters
+    QMetaType::Void, QMetaType::Int,    3,
+    QMetaType::Void, QMetaType::Int, 0x80000000 | 5,    3,    6,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::Int, QMetaType::QByteArray,    3,    9,
 
        0        // eod
 };
@@ -68,11 +83,24 @@ void Widget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         auto *_t = static_cast<Widget *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->on_startlistening_clicked(); break;
+        case 0: _t->SlotDisconnect((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 1: _t->SlotConnect((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< QTcpSocket*(*)>(_a[2]))); break;
+        case 2: _t->on_startlistening_clicked(); break;
+        case 3: _t->SlotReadData((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< const QByteArray(*)>(_a[2]))); break;
         default: ;
         }
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+        case 1:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 1:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QTcpSocket* >(); break;
+            }
+            break;
+        }
     }
-    Q_UNUSED(_a);
 }
 
 QT_INIT_METAOBJECT const QMetaObject Widget::staticMetaObject = { {
@@ -104,13 +132,13 @@ int Widget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
-            *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 1;
+        if (_id < 4)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 4;
     }
     return _id;
 }

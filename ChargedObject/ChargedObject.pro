@@ -21,12 +21,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     chargedobject.cpp \
     data_processor.cpp \
+    listen_trigger1.cpp \
+    listen_trigger2.cpp \
     main.cpp \
+    tcp_socket.cpp \
     widget.cpp
 
 HEADERS += \
     chargedobject.h \
     data_processor.h \
+    listen_trigger1.h \
+    listen_trigger2.h \
+    tcp_socket.h \
     widget.h
 
 FORMS += \

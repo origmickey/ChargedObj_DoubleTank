@@ -3,10 +3,13 @@
 
 #include <QTcpServer>
 #include <QTcpSocket>
+#include <QObject>
 
-#include "data_processor.h"
+#include "tcp_socket.h"
 
-class ChargedObject : QTcpServer
+
+
+class ChargedObject : public QTcpServer
 {
     Q_OBJECT
 public:
@@ -14,20 +17,24 @@ public:
 
     ~ChargedObject();
 
-    void StartListen();
+    virtual void incomingConnection(qintptr handle) override;
+
+
 
     void Init();
 
-    QTcpSocket * serverSocket;
 
-    data_processor * msg_processor;
+signals:
+     void ClientConnected(int, QTcpSocket*);
+     void ClientDisconnected(int);
+     void DataReady(int, const QByteArray &data);
 
+     void StartListen(int port);
 
 public slots:
-    void AcceptConnection();
-    void ReadMsg();
 
-    void SendMsg(QByteArray *data2send);
+    void SendMsg(QTcpSocket * sender, QByteArray *data2send);
+
 
 
 
