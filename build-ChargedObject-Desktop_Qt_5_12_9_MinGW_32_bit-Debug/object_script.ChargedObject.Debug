@@ -1,14 +1,12 @@
 debug/JQChecksum.o
 debug/chargedobject.o
 debug/data_processor.o
-debug/listen_trigger1.o
-debug/listen_trigger2.o
 debug/main.o
+debug/tank_model.o
 debug/tcp_socket.o
 debug/widget.o
 debug/moc_chargedobject.o
 debug/moc_data_processor.o
-debug/moc_listen_trigger1.o
-debug/moc_listen_trigger2.o
+debug/moc_tank_model.o
 debug/moc_tcp_socket.o
 debug/moc_widget.o

@@ -1,4 +1,5 @@
 #include "data_processor.h"
+#include <QThread>
 
 data_processor::data_processor(QObject *parent) : QObject(parent)
 {
@@ -54,6 +55,10 @@ void data_processor::unpacker(QByteArray recv_data){
         QByteArray valid_data = data_area.mid(1, (data_area.size()-1));
         qDebug()<<"valid data is :"<< valid_data;
 
+        QString LogInfo;
+        LogInfo.sprintf("%p", QThread::currentThread());
+        qDebug() <<"threadID : "<<LogInfo;
+
         emit ValidDataReady(id,valid_data);
 
         ParsedResult parsed_result;
@@ -93,6 +98,7 @@ void data_processor::unpacker(QByteArray recv_data){
 
 void data_processor::ProccessingTask(QByteArray rawdata)
 {
+    qDebug()<<"rawdata is : "<<rawdata;
     this->unpacker(rawdata);
 }
 

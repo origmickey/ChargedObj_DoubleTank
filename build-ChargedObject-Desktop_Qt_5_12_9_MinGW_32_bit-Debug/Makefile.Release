@@ -50,43 +50,37 @@ OBJECTS_DIR   = release
 SOURCES       = ..\ChargedObject\Library\JQLibrary\src\JQChecksum.cpp \
 		..\ChargedObject\chargedobject.cpp \
 		..\ChargedObject\data_processor.cpp \
-		..\ChargedObject\listen_trigger1.cpp \
-		..\ChargedObject\listen_trigger2.cpp \
 		..\ChargedObject\main.cpp \
+		..\ChargedObject\tank_model.cpp \
 		..\ChargedObject\tcp_socket.cpp \
 		..\ChargedObject\widget.cpp release\moc_chargedobject.cpp \
 		release\moc_data_processor.cpp \
-		release\moc_listen_trigger1.cpp \
-		release\moc_listen_trigger2.cpp \
+		release\moc_tank_model.cpp \
 		release\moc_tcp_socket.cpp \
 		release\moc_widget.cpp
 OBJECTS       = release/JQChecksum.o \
 		release/chargedobject.o \
 		release/data_processor.o \
-		release/listen_trigger1.o \
-		release/listen_trigger2.o \
 		release/main.o \
+		release/tank_model.o \
 		release/tcp_socket.o \
 		release/widget.o \
 		release/moc_chargedobject.o \
 		release/moc_data_processor.o \
-		release/moc_listen_trigger1.o \
-		release/moc_listen_trigger2.o \
+		release/moc_tank_model.o \
 		release/moc_tcp_socket.o \
 		release/moc_widget.o
 
 DIST          =  ..\ChargedObject\Library\JQLibrary\include\JQChecksum.h \
 		..\ChargedObject\chargedobject.h \
 		..\ChargedObject\data_processor.h \
-		..\ChargedObject\listen_trigger1.h \
-		..\ChargedObject\listen_trigger2.h \
+		..\ChargedObject\tank_model.h \
 		..\ChargedObject\tcp_socket.h \
 		..\ChargedObject\widget.h ..\ChargedObject\Library\JQLibrary\src\JQChecksum.cpp \
 		..\ChargedObject\chargedobject.cpp \
 		..\ChargedObject\data_processor.cpp \
-		..\ChargedObject\listen_trigger1.cpp \
-		..\ChargedObject\listen_trigger2.cpp \
 		..\ChargedObject\main.cpp \
+		..\ChargedObject\tank_model.cpp \
 		..\ChargedObject\tcp_socket.cpp \
 		..\ChargedObject\widget.cpp
 QMAKE_TARGET  = ChargedObject
@@ -108,10 +102,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) ChargedObject.zip $(SOURCES) $(DIST) ..\ChargedObject\ChargedObject.pro E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\spec_pre.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\qdevice.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\device_config.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\common\sanitize.conf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\common\gcc-base.conf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\common\g++-base.conf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\common\angle.conf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\win32\windows_vulkan_sdk.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\common\windows-vulkan.conf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\common\g++-win32.conf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\qconfig.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3danimation.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3danimation_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dcore.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dcore_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dextras.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dextras_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dinput.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dinput_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dlogic.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dlogic_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquick.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquick_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickanimation.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickanimation_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickextras.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickextras_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickinput.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickinput_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickrender.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickrender_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickscene2d.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickscene2d_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3drender.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3drender_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_accessibility_support_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axbase.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axbase_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axcontainer.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axcontainer_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axserver.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axserver_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_bluetooth.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_bluetooth_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_bootstrap_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_charts.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_charts_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_concurrent.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_concurrent_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_core.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_core_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_datavisualization.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_datavisualization_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_dbus.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_dbus_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_designer.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_designer_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_designercomponents_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_devicediscovery_support_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_edid_support_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_egl_support_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_fb_support_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_fontdatabase_support_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_gamepad.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_gamepad_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_gui.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_gui_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_help.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_help_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_location.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_location_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_multimedia.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_multimedia_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_multimediawidgets.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_network.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_network_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_networkauth.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_networkauth_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_nfc.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_nfc_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_opengl.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_opengl_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_openglextensions.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_openglextensions_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_packetprotocol_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_platformcompositor_support_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_positioning.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_positioning_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_positioningquick.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_positioningquick_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_printsupport.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_printsupport_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_purchasing.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_purchasing_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qml.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qml_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qmldebug_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qmldevtools_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qmltest.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qmltest_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quick.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quick_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickcontrols2.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickparticles_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickshapes_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quicktemplates2.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickwidgets.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickwidgets_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_remoteobjects.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_remoteobjects_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_repparser.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_repparser_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_script.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_script_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_scripttools.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_scripttools_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_scxml.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_scxml_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_sensors.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_sensors_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_serialbus.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_serialbus_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_serialport.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_serialport_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_sql.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_sql_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_svg.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_svg_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_testlib.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_testlib_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_texttospeech.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_texttospeech_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_theme_support_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_uiplugin.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_uitools.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_uitools_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_virtualkeyboard.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_virtualkeyboard_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_webchannel.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_webchannel_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_websockets.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_websockets_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_widgets.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_widgets_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_winextras.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_winextras_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_xml.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_xml_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_xmlpatterns.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\qt_functions.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\qt_config.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\win32-g++\qmake.conf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\spec_post.prf .qmake.stash E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\exclusive_builds.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\toolchain.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\default_pre.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\win32\default_pre.prf ..\ChargedObject\Library\JQLibrary\JQLibrary.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\resolve_config.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\exclusive_builds_post.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\default_post.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\build_pass.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\qml_debug.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\precompile_header.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\warn_on.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\qt.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\resources.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\moc.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\win32\opengl.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\uic.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\qmake_use.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\file_copies.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\win32\windows.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\testcase_targets.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\exceptions.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\yacc.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\lex.prf ..\ChargedObject\ChargedObject.pro E:\software\Qt5.12.9\5.12.9\mingw73_32\lib\Qt5Widgets.prl E:\software\Qt5.12.9\5.12.9\mingw73_32\lib\Qt5Gui.prl E:\software\Qt5.12.9\5.12.9\mingw73_32\lib\Qt5Network.prl E:\software\Qt5.12.9\5.12.9\mingw73_32\lib\Qt5Core.prl E:\software\Qt5.12.9\5.12.9\mingw73_32\lib\qtmain.prl    E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\data\dummy.cpp ..\ChargedObject\Library\JQLibrary\include\JQChecksum.h ..\ChargedObject\chargedobject.h ..\ChargedObject\data_processor.h ..\ChargedObject\listen_trigger1.h ..\ChargedObject\listen_trigger2.h ..\ChargedObject\tcp_socket.h ..\ChargedObject\widget.h  ..\ChargedObject\Library\JQLibrary\src\JQChecksum.cpp ..\ChargedObject\chargedobject.cpp ..\ChargedObject\data_processor.cpp ..\ChargedObject\listen_trigger1.cpp ..\ChargedObject\listen_trigger2.cpp ..\ChargedObject\main.cpp ..\ChargedObject\tcp_socket.cpp ..\ChargedObject\widget.cpp ..\ChargedObject\widget.ui    
+	$(ZIP) ChargedObject.zip $(SOURCES) $(DIST) ..\ChargedObject\ChargedObject.pro E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\spec_pre.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\qdevice.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\device_config.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\common\sanitize.conf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\common\gcc-base.conf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\common\g++-base.conf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\common\angle.conf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\win32\windows_vulkan_sdk.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\common\windows-vulkan.conf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\common\g++-win32.conf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\qconfig.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3danimation.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3danimation_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dcore.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dcore_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dextras.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dextras_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dinput.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dinput_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dlogic.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dlogic_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquick.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquick_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickanimation.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickanimation_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickextras.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickextras_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickinput.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickinput_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickrender.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickrender_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickscene2d.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickscene2d_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3drender.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3drender_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_accessibility_support_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axbase.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axbase_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axcontainer.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axcontainer_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axserver.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axserver_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_bluetooth.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_bluetooth_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_bootstrap_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_charts.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_charts_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_concurrent.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_concurrent_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_core.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_core_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_datavisualization.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_datavisualization_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_dbus.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_dbus_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_designer.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_designer_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_designercomponents_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_devicediscovery_support_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_edid_support_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_egl_support_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_fb_support_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_fontdatabase_support_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_gamepad.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_gamepad_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_gui.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_gui_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_help.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_help_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_location.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_location_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_multimedia.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_multimedia_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_multimediawidgets.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_network.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_network_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_networkauth.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_networkauth_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_nfc.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_nfc_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_opengl.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_opengl_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_openglextensions.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_openglextensions_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_packetprotocol_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_platformcompositor_support_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_positioning.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_positioning_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_positioningquick.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_positioningquick_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_printsupport.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_printsupport_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_purchasing.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_purchasing_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qml.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qml_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qmldebug_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qmldevtools_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qmltest.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qmltest_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quick.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quick_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickcontrols2.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickparticles_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickshapes_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quicktemplates2.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickwidgets.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickwidgets_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_remoteobjects.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_remoteobjects_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_repparser.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_repparser_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_script.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_script_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_scripttools.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_scripttools_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_scxml.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_scxml_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_sensors.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_sensors_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_serialbus.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_serialbus_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_serialport.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_serialport_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_sql.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_sql_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_svg.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_svg_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_testlib.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_testlib_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_texttospeech.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_texttospeech_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_theme_support_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_uiplugin.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_uitools.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_uitools_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_virtualkeyboard.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_virtualkeyboard_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_webchannel.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_webchannel_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_websockets.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_websockets_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_widgets.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_widgets_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_winextras.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_winextras_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_xml.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_xml_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_xmlpatterns.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\qt_functions.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\qt_config.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\win32-g++\qmake.conf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\spec_post.prf .qmake.stash E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\exclusive_builds.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\toolchain.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\default_pre.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\win32\default_pre.prf ..\ChargedObject\Library\JQLibrary\JQLibrary.pri E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\resolve_config.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\exclusive_builds_post.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\default_post.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\build_pass.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\qml_debug.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\precompile_header.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\warn_on.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\qt.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\resources.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\moc.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\win32\opengl.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\uic.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\qmake_use.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\file_copies.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\win32\windows.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\testcase_targets.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\exceptions.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\yacc.prf E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\lex.prf ..\ChargedObject\ChargedObject.pro E:\software\Qt5.12.9\5.12.9\mingw73_32\lib\Qt5Widgets.prl E:\software\Qt5.12.9\5.12.9\mingw73_32\lib\Qt5Gui.prl E:\software\Qt5.12.9\5.12.9\mingw73_32\lib\Qt5Network.prl E:\software\Qt5.12.9\5.12.9\mingw73_32\lib\Qt5Core.prl E:\software\Qt5.12.9\5.12.9\mingw73_32\lib\qtmain.prl    E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\data\dummy.cpp ..\ChargedObject\Library\JQLibrary\include\JQChecksum.h ..\ChargedObject\chargedobject.h ..\ChargedObject\data_processor.h ..\ChargedObject\tank_model.h ..\ChargedObject\tcp_socket.h ..\ChargedObject\widget.h  ..\ChargedObject\Library\JQLibrary\src\JQChecksum.cpp ..\ChargedObject\chargedobject.cpp ..\ChargedObject\data_processor.cpp ..\ChargedObject\main.cpp ..\ChargedObject\tank_model.cpp ..\ChargedObject\tcp_socket.cpp ..\ChargedObject\widget.cpp ..\ChargedObject\widget.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) release\JQChecksum.o release\chargedobject.o release\data_processor.o release\listen_trigger1.o release\listen_trigger2.o release\main.o release\tcp_socket.o release\widget.o release\moc_chargedobject.o release\moc_data_processor.o release\moc_listen_trigger1.o release\moc_listen_trigger2.o release\moc_tcp_socket.o release\moc_widget.o
+	-$(DEL_FILE) release\JQChecksum.o release\chargedobject.o release\data_processor.o release\main.o release\tank_model.o release\tcp_socket.o release\widget.o release\moc_chargedobject.o release\moc_data_processor.o release\moc_tank_model.o release\moc_tcp_socket.o release\moc_widget.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -136,9 +130,9 @@ compiler_moc_predefs_clean:
 release/moc_predefs.h: E:/software/Qt5.12.9/5.12.9/mingw73_32/mkspecs/features/data/dummy.cpp
 	g++ -fno-keep-inline-dllexport -O2 -std=gnu++11 -Wall -W -Wextra -dM -E -o release\moc_predefs.h E:\software\Qt5.12.9\5.12.9\mingw73_32\mkspecs\features\data\dummy.cpp
 
-compiler_moc_header_make_all: release/moc_chargedobject.cpp release/moc_data_processor.cpp release/moc_listen_trigger1.cpp release/moc_listen_trigger2.cpp release/moc_tcp_socket.cpp release/moc_widget.cpp
+compiler_moc_header_make_all: release/moc_chargedobject.cpp release/moc_data_processor.cpp release/moc_tank_model.cpp release/moc_tcp_socket.cpp release/moc_widget.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) release\moc_chargedobject.cpp release\moc_data_processor.cpp release\moc_listen_trigger1.cpp release\moc_listen_trigger2.cpp release\moc_tcp_socket.cpp release\moc_widget.cpp
+	-$(DEL_FILE) release\moc_chargedobject.cpp release\moc_data_processor.cpp release\moc_tank_model.cpp release\moc_tcp_socket.cpp release\moc_widget.cpp
 release/moc_chargedobject.cpp: ../ChargedObject/chargedobject.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtNetwork/QTcpServer \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtNetwork/qtcpserver.h \
@@ -290,7 +284,7 @@ release/moc_data_processor.cpp: ../ChargedObject/data_processor.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/bin/moc.exe
 	E:\software\Qt5.12.9\5.12.9\mingw73_32\bin\moc.exe $(DEFINES) --include E:/dev/proj/qt5.12/ChargedObj_doubletank/build-ChargedObject-Desktop_Qt_5_12_9_MinGW_32_bit-Debug/release/moc_predefs.h -IE:/software/Qt5.12.9/5.12.9/mingw73_32/mkspecs/win32-g++ -IE:/dev/proj/qt5.12/ChargedObj_doubletank/ChargedObject -IE:/dev/proj/qt5.12/ChargedObj_doubletank/ChargedObject/Library/JQLibrary/include -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtGui -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtANGLE -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtNetwork -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore -I. -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IE:/software/Qt5.12.9/Tools/mingw730_32/i686-w64-mingw32/include ..\ChargedObject\data_processor.h -o release\moc_data_processor.cpp
 
-release/moc_listen_trigger1.cpp: ../ChargedObject/listen_trigger1.h \
+release/moc_tank_model.cpp: ../ChargedObject/tank_model.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QObject \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qobject.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qobjectdefs.h \
@@ -341,98 +335,9 @@ release/moc_listen_trigger1.cpp: ../ChargedObject/listen_trigger1.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qvarlengtharray.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcontainerfwd.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qobject_impl.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QThread \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qthread.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QDebug \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qdebug.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qhash.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qmap.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qtextstream.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qiodevice.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qlocale.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qvariant.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qshareddata.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qvector.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qpoint.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qset.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcontiguouscache.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qsharedpointer.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qsharedpointer_impl.h \
 		release/moc_predefs.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/bin/moc.exe
-	E:\software\Qt5.12.9\5.12.9\mingw73_32\bin\moc.exe $(DEFINES) --include E:/dev/proj/qt5.12/ChargedObj_doubletank/build-ChargedObject-Desktop_Qt_5_12_9_MinGW_32_bit-Debug/release/moc_predefs.h -IE:/software/Qt5.12.9/5.12.9/mingw73_32/mkspecs/win32-g++ -IE:/dev/proj/qt5.12/ChargedObj_doubletank/ChargedObject -IE:/dev/proj/qt5.12/ChargedObj_doubletank/ChargedObject/Library/JQLibrary/include -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtGui -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtANGLE -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtNetwork -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore -I. -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IE:/software/Qt5.12.9/Tools/mingw730_32/i686-w64-mingw32/include ..\ChargedObject\listen_trigger1.h -o release\moc_listen_trigger1.cpp
-
-release/moc_listen_trigger2.cpp: ../ChargedObject/listen_trigger2.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QObject \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qobject.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qobjectdefs.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qnamespace.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qglobal.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qconfig-bootstrapped.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qconfig.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qtcore-config.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qsystemdetection.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qprocessordetection.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcompilerdetection.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qtypeinfo.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qsysinfo.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qlogging.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qflags.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qatomic.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qbasicatomic.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qatomic_bootstrap.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qgenericatomic.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qatomic_cxx11.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qatomic_msvc.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qglobalstatic.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qmutex.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qnumeric.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qversiontagging.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qobjectdefs_impl.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstring.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qchar.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qbytearray.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qrefcount.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qarraydata.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringliteral.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringalgorithms.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringview.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringbuilder.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qlist.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qalgorithms.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qiterator.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qhashfunctions.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qpair.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qbytearraylist.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringlist.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qregexp.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringmatcher.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcoreevent.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qscopedpointer.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qmetatype.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qvarlengtharray.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcontainerfwd.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qobject_impl.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QThread \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qthread.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QDebug \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qdebug.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qhash.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qmap.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qtextstream.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qiodevice.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qlocale.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qvariant.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qshareddata.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qvector.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qpoint.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qset.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcontiguouscache.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qsharedpointer.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qsharedpointer_impl.h \
-		release/moc_predefs.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/bin/moc.exe
-	E:\software\Qt5.12.9\5.12.9\mingw73_32\bin\moc.exe $(DEFINES) --include E:/dev/proj/qt5.12/ChargedObj_doubletank/build-ChargedObject-Desktop_Qt_5_12_9_MinGW_32_bit-Debug/release/moc_predefs.h -IE:/software/Qt5.12.9/5.12.9/mingw73_32/mkspecs/win32-g++ -IE:/dev/proj/qt5.12/ChargedObj_doubletank/ChargedObject -IE:/dev/proj/qt5.12/ChargedObj_doubletank/ChargedObject/Library/JQLibrary/include -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtGui -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtANGLE -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtNetwork -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore -I. -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IE:/software/Qt5.12.9/Tools/mingw730_32/i686-w64-mingw32/include ..\ChargedObject\listen_trigger2.h -o release\moc_listen_trigger2.cpp
+	E:\software\Qt5.12.9\5.12.9\mingw73_32\bin\moc.exe $(DEFINES) --include E:/dev/proj/qt5.12/ChargedObj_doubletank/build-ChargedObject-Desktop_Qt_5_12_9_MinGW_32_bit-Debug/release/moc_predefs.h -IE:/software/Qt5.12.9/5.12.9/mingw73_32/mkspecs/win32-g++ -IE:/dev/proj/qt5.12/ChargedObj_doubletank/ChargedObject -IE:/dev/proj/qt5.12/ChargedObj_doubletank/ChargedObject/Library/JQLibrary/include -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtGui -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtANGLE -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtNetwork -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore -I. -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IE:/software/Qt5.12.9/Tools/mingw730_32/i686-w64-mingw32/include ..\ChargedObject\tank_model.h -o release\moc_tank_model.cpp
 
 release/moc_tcp_socket.cpp: ../ChargedObject/tcp_socket.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QObject \
@@ -616,6 +521,11 @@ release/moc_widget.cpp: ../ChargedObject/widget.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/QList \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QThread \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qthread.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QTimer \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qtimer.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qbasictimer.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QQueue \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qqueue.h \
 		../ChargedObject/chargedobject.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtNetwork/QTcpServer \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtNetwork/qtcpserver.h \
@@ -631,8 +541,7 @@ release/moc_widget.cpp: ../ChargedObject/widget.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QByteArray \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QString \
 		../ChargedObject/Library/JQLibrary/include/JQChecksum.h \
-		../ChargedObject/listen_trigger1.h \
-		../ChargedObject/listen_trigger2.h \
+		../ChargedObject/tank_model.h \
 		release/moc_predefs.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/bin/moc.exe
 	E:\software\Qt5.12.9\5.12.9\mingw73_32\bin\moc.exe $(DEFINES) --include E:/dev/proj/qt5.12/ChargedObj_doubletank/build-ChargedObject-Desktop_Qt_5_12_9_MinGW_32_bit-Debug/release/moc_predefs.h -IE:/software/Qt5.12.9/5.12.9/mingw73_32/mkspecs/win32-g++ -IE:/dev/proj/qt5.12/ChargedObj_doubletank/ChargedObject -IE:/dev/proj/qt5.12/ChargedObj_doubletank/ChargedObject/Library/JQLibrary/include -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtGui -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtANGLE -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtNetwork -IE:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore -I. -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IE:/software/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IE:/software/Qt5.12.9/Tools/mingw730_32/i686-w64-mingw32/include ..\ChargedObject\widget.h -o release\moc_widget.cpp
@@ -833,148 +742,10 @@ release/data_processor.o: ../ChargedObject/data_processor.cpp ../ChargedObject/d
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qsharedpointer.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qsharedpointer_impl.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QObject \
-		../ChargedObject/Library/JQLibrary/include/JQChecksum.h
+		../ChargedObject/Library/JQLibrary/include/JQChecksum.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QThread \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qthread.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\data_processor.o ..\ChargedObject\data_processor.cpp
-
-release/listen_trigger1.o: ../ChargedObject/listen_trigger1.cpp ../ChargedObject/listen_trigger1.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QObject \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qobject.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qobjectdefs.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qnamespace.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qglobal.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qconfig-bootstrapped.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qconfig.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qtcore-config.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qsystemdetection.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qprocessordetection.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcompilerdetection.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qtypeinfo.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qsysinfo.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qlogging.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qflags.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qatomic.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qbasicatomic.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qatomic_bootstrap.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qgenericatomic.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qatomic_cxx11.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qatomic_msvc.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qglobalstatic.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qmutex.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qnumeric.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qversiontagging.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qobjectdefs_impl.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstring.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qchar.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qbytearray.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qrefcount.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qarraydata.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringliteral.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringalgorithms.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringview.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringbuilder.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qlist.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qalgorithms.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qiterator.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qhashfunctions.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qpair.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qbytearraylist.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringlist.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qregexp.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringmatcher.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcoreevent.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qscopedpointer.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qmetatype.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qvarlengtharray.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcontainerfwd.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qobject_impl.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QThread \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qthread.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QDebug \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qdebug.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qhash.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qmap.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qtextstream.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qiodevice.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qlocale.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qvariant.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qshareddata.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qvector.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qpoint.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qset.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcontiguouscache.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qsharedpointer.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qsharedpointer_impl.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\listen_trigger1.o ..\ChargedObject\listen_trigger1.cpp
-
-release/listen_trigger2.o: ../ChargedObject/listen_trigger2.cpp ../ChargedObject/listen_trigger2.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QObject \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qobject.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qobjectdefs.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qnamespace.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qglobal.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qconfig-bootstrapped.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qconfig.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qtcore-config.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qsystemdetection.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qprocessordetection.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcompilerdetection.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qtypeinfo.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qsysinfo.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qlogging.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qflags.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qatomic.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qbasicatomic.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qatomic_bootstrap.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qgenericatomic.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qatomic_cxx11.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qatomic_msvc.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qglobalstatic.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qmutex.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qnumeric.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qversiontagging.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qobjectdefs_impl.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstring.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qchar.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qbytearray.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qrefcount.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qarraydata.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringliteral.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringalgorithms.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringview.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringbuilder.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qlist.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qalgorithms.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qiterator.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qhashfunctions.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qpair.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qbytearraylist.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringlist.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qregexp.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringmatcher.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcoreevent.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qscopedpointer.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qmetatype.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qvarlengtharray.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcontainerfwd.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qobject_impl.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QThread \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qthread.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QDebug \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qdebug.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qhash.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qmap.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qtextstream.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qiodevice.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qlocale.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qvariant.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qshareddata.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qvector.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qpoint.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qset.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcontiguouscache.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qsharedpointer.h \
-		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qsharedpointer_impl.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\listen_trigger2.o ..\ChargedObject\listen_trigger2.cpp
 
 release/main.o: ../ChargedObject/main.cpp ../ChargedObject/widget.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QWidget \
@@ -1084,6 +855,11 @@ release/main.o: ../ChargedObject/main.cpp ../ChargedObject/widget.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/QList \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QThread \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qthread.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QTimer \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qtimer.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qbasictimer.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QQueue \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qqueue.h \
 		../ChargedObject/chargedobject.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtNetwork/QTcpServer \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtNetwork/qtcpserver.h \
@@ -1099,8 +875,7 @@ release/main.o: ../ChargedObject/main.cpp ../ChargedObject/widget.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QByteArray \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QString \
 		../ChargedObject/Library/JQLibrary/include/JQChecksum.h \
-		../ChargedObject/listen_trigger1.h \
-		../ChargedObject/listen_trigger2.h \
+		../ChargedObject/tank_model.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QApplication \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qapplication.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcoreapplication.h \
@@ -1109,6 +884,59 @@ release/main.o: ../ChargedObject/main.cpp ../ChargedObject/widget.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qguiapplication.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qinputmethod.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\ChargedObject\main.cpp
+
+release/tank_model.o: ../ChargedObject/tank_model.cpp ../ChargedObject/tank_model.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QObject \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qobject.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qobjectdefs.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qnamespace.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qglobal.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qconfig-bootstrapped.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qconfig.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qtcore-config.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qsystemdetection.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qprocessordetection.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcompilerdetection.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qtypeinfo.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qsysinfo.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qlogging.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qflags.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qatomic.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qbasicatomic.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qatomic_bootstrap.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qgenericatomic.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qatomic_cxx11.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qatomic_msvc.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qglobalstatic.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qmutex.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qnumeric.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qversiontagging.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qobjectdefs_impl.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstring.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qchar.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qbytearray.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qrefcount.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qarraydata.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringliteral.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringalgorithms.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringview.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringbuilder.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qlist.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qalgorithms.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qiterator.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qhashfunctions.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qpair.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qbytearraylist.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringlist.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qregexp.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qstringmatcher.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcoreevent.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qscopedpointer.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qmetatype.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qvarlengtharray.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcontainerfwd.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qobject_impl.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\tank_model.o ..\ChargedObject\tank_model.cpp
 
 release/tcp_socket.o: ../ChargedObject/tcp_socket.cpp ../ChargedObject/tcp_socket.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QObject \
@@ -1290,6 +1118,11 @@ release/widget.o: ../ChargedObject/widget.cpp ../ChargedObject/widget.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/QList \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QThread \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qthread.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QTimer \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qtimer.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qbasictimer.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QQueue \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qqueue.h \
 		../ChargedObject/chargedobject.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtNetwork/QTcpServer \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtNetwork/qtcpserver.h \
@@ -1305,9 +1138,20 @@ release/widget.o: ../ChargedObject/widget.cpp ../ChargedObject/widget.h \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QByteArray \
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QString \
 		../ChargedObject/Library/JQLibrary/include/JQChecksum.h \
-		../ChargedObject/listen_trigger1.h \
-		../ChargedObject/listen_trigger2.h \
-		ui_widget.h
+		../ChargedObject/tank_model.h \
+		ui_widget.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QVariant \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QApplication \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qapplication.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcoreapplication.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qeventloop.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qdesktopwidget.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qguiapplication.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qinputmethod.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QPushButton \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qpushbutton.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qabstractbutton.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qicon.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\widget.o ..\ChargedObject\widget.cpp
 
 release/moc_chargedobject.o: release/moc_chargedobject.cpp 
@@ -1316,11 +1160,8 @@ release/moc_chargedobject.o: release/moc_chargedobject.cpp
 release/moc_data_processor.o: release/moc_data_processor.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_data_processor.o release\moc_data_processor.cpp
 
-release/moc_listen_trigger1.o: release/moc_listen_trigger1.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_listen_trigger1.o release\moc_listen_trigger1.cpp
-
-release/moc_listen_trigger2.o: release/moc_listen_trigger2.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_listen_trigger2.o release\moc_listen_trigger2.cpp
+release/moc_tank_model.o: release/moc_tank_model.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_tank_model.o release\moc_tank_model.cpp
 
 release/moc_tcp_socket.o: release/moc_tcp_socket.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_tcp_socket.o release\moc_tcp_socket.cpp

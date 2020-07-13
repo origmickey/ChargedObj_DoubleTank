@@ -15,14 +15,16 @@ Widget::Widget(QWidget *parent)
 
 Widget::~Widget()
 {
+    delete data_proccessing_thread;
+    delete sampling_thread;
+
     data_proccessing_thread->wait();
     data_proccessing_thread->quit();
 
     sampling_thread->wait();
     sampling_thread->quit();
 
-    delete data_proccessing_thread;
-    delete sampling_thread;
+
 
     delete ui;
 
@@ -39,11 +41,17 @@ Widget::~Widget()
 
     delete yk_queue;
 
+    delete tank_model1;
+
 }
 
 
 void Widget::Init()
 {
+    QString LogInfo;
+    LogInfo.sprintf("%p", QThread::currentThread());
+    qDebug() <<"MainthreadID : "<<LogInfo;
+
     server1 = new  ChargedObject;
     server2 = new  ChargedObject;
 
@@ -57,6 +65,8 @@ void Widget::Init()
 
     connect(msg_processor, SIGNAL(ValidDataReady(QByteArray, QByteArray )), this, SLOT(GetValidData(QByteArray , QByteArray )));
 
+    data_proccessing_thread->start();
+
     sampling_thread = new QThread;
 
     sampling_timer = new QTimer;
@@ -64,6 +74,10 @@ void Widget::Init()
     sampling_timer->moveToThread(sampling_thread);
 
     yk_queue = new QQueue<QByteArray>;
+
+    tank_model1 = new tank_model;
+
+    current_yk = 0;
 
 }
 
@@ -108,14 +122,27 @@ void Widget::GetValidData(QByteArray id, QByteArray proccessed_data)
     if(id==msg_processor->id_list.at(2))
     {//处理命令帧
        qDebug()<<"开始调节";
+
+       emit StartSampling(500);
+
+
     }
     else
     {//不是命令帧的话，就处理正常数据帧
     qDebug()<<"proccessed_data is : "<<proccessed_data;
 
-    QString LogInfo;
-    LogInfo.sprintf("%p", QThread::currentThread());
-    qDebug() <<"threadID : "<<LogInfo;
+    bool ok;
+
+    int int_uk = proccessed_data.toInt(&ok, 16);
+
+    double times = 1000;
+    double double_uk = int_uk;
+
+    double real_uk = double_uk / times;
+
+    qDebug()<<"real_uk is :"<< real_uk;
+
+    current_yk = tank_model1->output(real_uk);
 
     }
 }
@@ -147,12 +174,23 @@ void Widget::on_sampling_clicked()
     sampling_thread->start();
 
     emit StartSampling(500);
+
+
 }
 
 void Widget::Sampling()
 {
-    qDebug()<<"sample here!";
-    QString LogInfo;
-    LogInfo.sprintf("%p", QThread::currentThread());
-    qDebug() <<"threadID : "<<LogInfo;
+ //发送当前yk给控制器
+    int times = 1000;
+
+    int int_current_yk = current_yk * times;
+
+    QByteArray data2send = QByteArray::number(int_current_yk,16);
+
+    int id=1;
+
+    QByteArray  msg = msg_processor->packer(data2send,id);
+
+    server1->SendMsg(socket_map.first(),&msg);
+
 }

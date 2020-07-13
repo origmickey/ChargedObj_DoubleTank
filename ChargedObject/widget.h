@@ -12,9 +12,7 @@
 
 #include "data_processor.h"
 
-#include "listen_trigger1.h"
-#include "listen_trigger2.h"
-
+#include "tank_model.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -33,12 +31,6 @@ public:
 
     data_processor * msg_processor;
 
-//    listen_trigger1 * trigger1;
-//    listen_trigger2 * trigger2;
-
-//    QThread * listen_thread1;
-//    QThread * listen_thread2;
-
     QTimer * sampling_timer;
 
     QThread * socket_thread;
@@ -50,10 +42,11 @@ public:
 
     QQueue<QByteArray> * yk_queue;
 
-signals:
-//    void start_listen1(int port);
-//    void start_listen2(int port);
+    tank_model * tank_model1;
 
+    double current_yk;
+
+signals:
     void StartSampling(int msec);
 
     void ProccessingCall(QByteArray data);
@@ -63,8 +56,6 @@ public slots:
     void SlotConnect(int handle, QTcpSocket *socket);
     void on_startlistening_clicked();
     void SlotReadData(int handle, const QByteArray &data);
-//    void server_listen1(int port);
-//    void server_listen2(int port);
     void Sampling();
 
     void GetValidData(QByteArray id , QByteArray proccessed_data);
