@@ -14,6 +14,7 @@ void tcp_socket::slot_disconnect()
 
 void tcp_socket::slot_readData()
 {
+    qDebug()<<"you have a msg";
     QByteArray data = readAll();
     emit sig_readyRead(m_handle, data);
 }

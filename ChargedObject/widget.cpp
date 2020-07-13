@@ -144,6 +144,8 @@ void Widget::GetValidData(QByteArray id, QByteArray proccessed_data)
 
     current_yk = tank_model1->output(real_uk);
 
+    qDebug()<< "current_yk is : "<<current_yk;
+
     }
 }
 
@@ -190,6 +192,8 @@ void Widget::Sampling()
     int id=1;
 
     QByteArray  msg = msg_processor->packer(data2send,id);
+
+    qDebug()<<"sending yk...";
 
     server1->SendMsg(socket_map.first(),&msg);
 
