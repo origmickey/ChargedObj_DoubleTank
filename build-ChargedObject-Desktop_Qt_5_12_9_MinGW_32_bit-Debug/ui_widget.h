@@ -20,6 +20,8 @@ class Ui_Widget
 {
 public:
     QPushButton *startlistening;
+    QPushButton *send2client;
+    QPushButton *sampling;
 
     void setupUi(QWidget *Widget)
     {
@@ -29,6 +31,12 @@ public:
         startlistening = new QPushButton(Widget);
         startlistening->setObjectName(QString::fromUtf8("startlistening"));
         startlistening->setGeometry(QRect(110, 110, 93, 28));
+        send2client = new QPushButton(Widget);
+        send2client->setObjectName(QString::fromUtf8("send2client"));
+        send2client->setGeometry(QRect(380, 310, 93, 28));
+        sampling = new QPushButton(Widget);
+        sampling->setObjectName(QString::fromUtf8("sampling"));
+        sampling->setGeometry(QRect(130, 230, 93, 28));
 
         retranslateUi(Widget);
 
@@ -39,6 +47,8 @@ public:
     {
         Widget->setWindowTitle(QApplication::translate("Widget", "Widget", nullptr));
         startlistening->setText(QApplication::translate("Widget", "\345\274\200\345\247\213\347\233\221\345\220\254", nullptr));
+        send2client->setText(QApplication::translate("Widget", "send2client", nullptr));
+        sampling->setText(QApplication::translate("Widget", "sampling", nullptr));
     } // retranslateUi
 
 };

@@ -5,8 +5,11 @@ data_processor::data_processor(QObject *parent) : QObject(parent)
     this->Init();
 }
 
-QByteArray data_processor::packer(QByteArray data2send, QByteArray  id)
+QByteArray data_processor::packer(QByteArray data2send, int id_type)
 {
+    QByteArray id;
+    id = id_list.at(id_type);
+
     int len = id.size()+data2send.size();
     QByteArray len_dataarea = QByteArray::number(len,16);
     qDebug()<<"len_dataarea in packer is : "<<len;
@@ -50,7 +53,9 @@ void data_processor::unpacker(QByteArray recv_data){
 
         QByteArray valid_data = data_area.mid(1, (data_area.size()-1));
         qDebug()<<"valid data is :"<< valid_data;
-        emit ValidDataReady(valid_data);
+
+        emit ValidDataReady(id,valid_data);
+
         ParsedResult parsed_result;
         parsed_result.id = id;
         parsed_result.valid_data = valid_data;
@@ -86,11 +91,20 @@ void data_processor::unpacker(QByteArray recv_data){
 
 }
 
+void data_processor::ProccessingTask(QByteArray rawdata)
+{
+    this->unpacker(rawdata);
+}
+
 void data_processor::Init()
 {
     head=QByteArray::fromHex("FFBE");
 
-    id=QByteArray::fromHex("02");
+    id_list=QList<QByteArray>();
+
+    id_list.append(QByteArray::fromHex("00"));
+    id_list.append(QByteArray::fromHex("01"));
+    id_list.append(QByteArray::fromHex("02"));
 
     data_pool=QByteArray();
 

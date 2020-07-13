@@ -15,11 +15,14 @@ Widget::Widget(QWidget *parent)
 
 Widget::~Widget()
 {
-//    listen_thread1->wait();
-//    listen_thread1->quit();
-//    listen_thread2->wait();
-//    listen_thread2->quit();
+    data_proccessing_thread->wait();
+    data_proccessing_thread->quit();
 
+    sampling_thread->wait();
+    sampling_thread->quit();
+
+    delete data_proccessing_thread;
+    delete sampling_thread;
 
     delete ui;
 
@@ -28,12 +31,13 @@ Widget::~Widget()
 
     delete msg_processor;
 
-//    delete trigger1;
-//    delete trigger2;
+    delete socket_thread;
+    delete data_proccessing_thread;
+    delete sampling_thread;
 
-//    delete listen_thread1;
-//    delete listen_thread2;
+    delete sampling_timer;
 
+    delete yk_queue;
 
 }
 
@@ -45,27 +49,21 @@ void Widget::Init()
 
     msg_processor = new data_processor;
 
+    data_proccessing_thread = new QThread;
 
+    msg_processor->moveToThread(data_proccessing_thread);
 
+    connect(this, SIGNAL(ProccessingCall(QByteArray)), msg_processor, SLOT(ProccessingTask(QByteArray)));
 
-//    trigger1 = new listen_trigger1;
-//    trigger2 = new listen_trigger2;
+    connect(msg_processor, SIGNAL(ValidDataReady(QByteArray, QByteArray )), this, SLOT(GetValidData(QByteArray , QByteArray )));
 
-//    listen_thread1 = new QThread(this);
-//    listen_thread2 = new QThread(this);
+    sampling_thread = new QThread;
 
-//    trigger1->moveToThread(listen_thread1);
-//    trigger2->moveToThread(listen_thread2);
+    sampling_timer = new QTimer;
 
-//    listen_thread1->setObjectName("thread1");
-//    listen_thread2->setObjectName("thread2");
+    sampling_timer->moveToThread(sampling_thread);
 
-//    connect(this,SIGNAL(start_listen1(int)),trigger1,SLOT(ListenPort1(int )));
-//    connect(this,SIGNAL(start_listen2(int)),trigger2,SLOT(ListenPort2(int )));
-
-//    listen_thread1->start();
-//    listen_thread2->start();
-
+    yk_queue = new QQueue<QByteArray>;
 
 }
 
@@ -75,34 +73,10 @@ void Widget::on_startlistening_clicked()
     connect(server1,&ChargedObject::ClientConnected,this,&Widget::SlotConnect);
     connect(server2,&ChargedObject::ClientConnected,this,&Widget::SlotConnect);
 
-
-
-//    connect(trigger1,SIGNAL(SigListenPort1(int )),this, SLOT(server_listen1(int )));
-//    connect(trigger2,SIGNAL(SigListenPort2(int )),this, SLOT(server_listen2(int )));
-
-
     server1->listen(QHostAddress::Any, 9999);
     server2->listen(QHostAddress::Any, 9998);
-//    emit start_listen1(9999);
-//    emit start_listen1(9998);
-
-
 
 }
-
-
-
-//void Widget::server_listen1(int port)
-//{
-
-//    server->listen(QHostAddress::Any, port);
-//}
-
-//void Widget::server_listen2(int port)
-//{
-
-//    server->listen(QHostAddress::Any, port);
-//}
 
 
 void Widget::SlotConnect(int handle, QTcpSocket *socket)
@@ -124,7 +98,61 @@ void Widget::SlotReadData(int handle, const QByteArray &data)
 {
     qDebug()<<"handle "<<handle<<" data: "<<QString(data);
 
+    emit ProccessingCall(data);
+}
+
+void Widget::GetValidData(QByteArray id, QByteArray proccessed_data)
+{
+    qDebug()<<"GetValidData id is :"<<id;
+
+    if(id==msg_processor->id_list.at(2))
+    {//处理命令帧
+       qDebug()<<"开始调节";
+    }
+    else
+    {//不是命令帧的话，就处理正常数据帧
+    qDebug()<<"proccessed_data is : "<<proccessed_data;
+
+    QString LogInfo;
+    LogInfo.sprintf("%p", QThread::currentThread());
+    qDebug() <<"threadID : "<<LogInfo;
+
+    }
+}
+
+void Widget::on_send2client_clicked()
+{
+    int u2=14;
+
+    QByteArray data2send2 = QByteArray::number(u2,16);
+
+    int id=1;
 
 
-    msg_processor->unpacker(data);
+    QByteArray  msg2 = msg_processor->packer(data2send2,id);
+
+    server1->SendMsg(socket_map.first(),&msg2);
+}
+
+void Widget::on_sampling_clicked()
+{
+    QString LogInfo;
+    LogInfo.sprintf("%p", QThread::currentThread());
+    qDebug() <<"Main threadID : "<<LogInfo;
+
+    connect(this , SIGNAL(StartSampling(int)),sampling_timer,SLOT(start(int)));
+
+    connect(sampling_timer,SIGNAL(timeout()),this,SLOT(Sampling()));
+
+    sampling_thread->start();
+
+    emit StartSampling(500);
+}
+
+void Widget::Sampling()
+{
+    qDebug()<<"sample here!";
+    QString LogInfo;
+    LogInfo.sprintf("%p", QThread::currentThread());
+    qDebug() <<"threadID : "<<LogInfo;
 }
