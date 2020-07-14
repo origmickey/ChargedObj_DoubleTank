@@ -28,6 +28,7 @@ void ChargedObject::Init()
 
 void ChargedObject::incomingConnection(qintptr handle)
 {
+    qDebug()<<"received connection";
     tcp_socket *socket = new tcp_socket(handle);
 
     emit ClientConnected(handle, socket);

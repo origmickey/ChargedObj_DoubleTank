@@ -10,6 +10,8 @@ QByteArray data_processor::packer(QByteArray data2send, int id_type)
 {
     qDebug()<<"in packer";
     QByteArray id;
+
+    qDebug()<<"para id is :"<< id_type;
     id = id_list.at(id_type);
 
     qDebug()<<"in packer id is : "<<id;

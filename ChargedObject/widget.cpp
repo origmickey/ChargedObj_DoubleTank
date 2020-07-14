@@ -122,13 +122,13 @@ void Widget::SlotConnect(int handle, QTcpSocket *socket)
     connect(socket_map.value(handle),SIGNAL(sig_disconnect(int)),this,SLOT(SlotDisconnect(int)));
     connect(socket_map.value(handle),SIGNAL(sig_readyRead(int, QByteArray)),this,SLOT(SlotReadData(int,QByteArray)));
 
-    QThread * new_socket_thread = new QThread;
+//    QThread * new_socket_thread = new QThread;
 
-    socket_thread_map.insert(handle,new_socket_thread);
+//    socket_thread_map.insert(handle,new_socket_thread);
 
-    socket_map.value(handle)->moveToThread(socket_thread_map.value(handle));
+//    socket_map.value(handle)->moveToThread(socket_thread_map.value(handle));
 
-    socket_thread_map.value(handle)->start();
+//    socket_thread_map.value(handle)->start();
 }
 
 void Widget::SlotDisconnect(int handle)
@@ -147,6 +147,8 @@ void Widget::SlotReadData(int handle, const QByteArray &data)
 void Widget::GetValidData(QByteArray id, QByteArray proccessed_data)
 {
     int index = msg_processor->id_list.indexOf(id);
+    qDebug()<<"frame id index is : "<< index;
+
     switch (index) {
     case 0: {
         qDebug()<<"got uk0";
@@ -164,10 +166,12 @@ void Widget::GetValidData(QByteArray id, QByteArray proccessed_data)
         current_yk->replace(0, tank->at(0)->output(real_uk,current_yk->at(0)));
 
         qDebug()<< "current_yk0 is : "<<current_yk->at(0);
+        break;
 
     }
     case 1: {
         qDebug()<<"got yk1";
+        break;
     }
     case 2: {
         qDebug()<<"got start_adjustment order for tank0";
@@ -180,6 +184,8 @@ void Widget::GetValidData(QByteArray id, QByteArray proccessed_data)
                sampling_thread->at(0)->start();
 
                emit StartSampling0(500);
+
+               break;
     }
     case 3: {
         qDebug()<<"got uk1";
@@ -197,9 +203,13 @@ void Widget::GetValidData(QByteArray id, QByteArray proccessed_data)
         current_yk->replace(1, tank->at(1)->output(real_uk,current_yk->at(1)));
 
         qDebug()<< "current_yk1 is : "<<current_yk->at(1);
+
+        break;
     }
     case 4: {
         qDebug()<<"got yk2";
+
+        break;
     }
     case 5: {
         qDebug()<<"got start_adjustment order for tank1";
@@ -213,6 +223,8 @@ void Widget::GetValidData(QByteArray id, QByteArray proccessed_data)
                sampling_thread->at(1)->start();
 
                emit StartSampling1(500);
+
+               break;
     }
 
     }

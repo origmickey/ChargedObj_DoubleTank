@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "C:/Users/andrew/Desktop/ChargedObj_DoubleTank-061393602fc7ed0dccd75a4bc6de038752ab16b7/ChargedObject/tcp_socket.h"
+#include "../../ChargedObject/tcp_socket.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)

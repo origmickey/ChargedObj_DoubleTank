@@ -31,7 +31,7 @@ public:
 
     data_processor * msg_processor;
 
-    QList<QTimer*> * sampling_timer;
+
 
     QThread * socket_thread;
     QThread * data_proccessing_thread;
@@ -40,11 +40,12 @@ public:
 
     ChargedObject * server;
 
+    QList<QTimer*> * sampling_timer;
 
     QList<tank_model*> * tank;
 
-
     QList<double> * current_yk;
+
     QMap<int, QThread*> socket_thread_map;
 
 
