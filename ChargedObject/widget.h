@@ -41,12 +41,13 @@ public:
     ChargedObject * server;
 
 
-
     QList<tank_model*> * tank;
 
 
-
     QList<double> * current_yk;
+    QMap<int, QThread*> socket_thread_map;
+
+
 
 signals:
     void StartSampling0(int msec);
@@ -72,7 +73,6 @@ private:
     Ui::Widget *ui;
 
     QMap<int, QTcpSocket*> socket_map;
-    QMap<int, QTcpSocket*> socket_thread_map;
 
 
 

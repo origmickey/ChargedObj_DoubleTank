@@ -121,6 +121,14 @@ void Widget::SlotConnect(int handle, QTcpSocket *socket)
 
     connect(socket_map.value(handle),SIGNAL(sig_disconnect(int)),this,SLOT(SlotDisconnect(int)));
     connect(socket_map.value(handle),SIGNAL(sig_readyRead(int, QByteArray)),this,SLOT(SlotReadData(int,QByteArray)));
+
+    QThread * new_socket_thread = new QThread;
+
+    socket_thread_map.insert(handle,new_socket_thread);
+
+    socket_map.value(handle)->moveToThread(socket_thread_map.value(handle));
+
+    socket_thread_map.value(handle)->start();
 }
 
 void Widget::SlotDisconnect(int handle)
