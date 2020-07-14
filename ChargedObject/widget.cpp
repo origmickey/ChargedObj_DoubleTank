@@ -48,9 +48,9 @@ Widget::~Widget()
 
 void Widget::Init()
 {
-    QString LogInfo;
-    LogInfo.sprintf("%p", QThread::currentThread());
-    qDebug() <<"MainthreadID : "<<LogInfo;
+//    QString LogInfo;
+//    LogInfo.sprintf("%p", QThread::currentThread());
+//    qDebug() <<"MainthreadID : "<<LogInfo;
 
     server1 = new  ChargedObject;
     server2 = new  ChargedObject;
@@ -95,7 +95,7 @@ void Widget::on_startlistening_clicked()
 
 void Widget::SlotConnect(int handle, QTcpSocket *socket)
 {
-    qDebug()<<"port";
+
     socket_map.insert(handle, socket);
 
     connect(socket_map.value(handle),SIGNAL(sig_disconnect(int)),this,SLOT(SlotDisconnect(int)));
@@ -110,7 +110,7 @@ void Widget::SlotDisconnect(int handle)
 
 void Widget::SlotReadData(int handle, const QByteArray &data)
 {
-    qDebug()<<"handle "<<handle<<" data: "<<QString(data);
+//    qDebug()<<"handle "<<handle<<" data: "<<QString(data);
 
     emit ProccessingCall(data);
 }
@@ -122,6 +122,11 @@ void Widget::GetValidData(QByteArray id, QByteArray proccessed_data)
     if(id==msg_processor->id_list.at(2))
     {//处理命令帧
        qDebug()<<"开始调节";
+       connect(this , SIGNAL(StartSampling(int)),sampling_timer,SLOT(start(int)));
+
+       connect(sampling_timer,SIGNAL(timeout()),this,SLOT(Sampling()));
+
+       sampling_thread->start();
 
        emit StartSampling(500);
 
@@ -129,7 +134,7 @@ void Widget::GetValidData(QByteArray id, QByteArray proccessed_data)
     }
     else
     {//不是命令帧的话，就处理正常数据帧
-    qDebug()<<"proccessed_data is : "<<proccessed_data;
+//    qDebug()<<"proccessed_data is : "<<proccessed_data;
 
     bool ok;
 
@@ -142,7 +147,7 @@ void Widget::GetValidData(QByteArray id, QByteArray proccessed_data)
 
     qDebug()<<"real_uk is :"<< real_uk;
 
-    current_yk = tank_model1->output(real_uk);
+    current_yk = tank_model1->output(real_uk,current_yk);
 
     qDebug()<< "current_yk is : "<<current_yk;
 
@@ -165,9 +170,9 @@ void Widget::on_send2client_clicked()
 
 void Widget::on_sampling_clicked()
 {
-    QString LogInfo;
-    LogInfo.sprintf("%p", QThread::currentThread());
-    qDebug() <<"Main threadID : "<<LogInfo;
+//    QString LogInfo;
+//    LogInfo.sprintf("%p", QThread::currentThread());
+//    qDebug() <<"Main threadID : "<<LogInfo;
 
     connect(this , SIGNAL(StartSampling(int)),sampling_timer,SLOT(start(int)));
 
@@ -187,13 +192,17 @@ void Widget::Sampling()
 
     int int_current_yk = current_yk * times;
 
+    qDebug()<<"int_current_yk is : "<<current_yk;
+
     QByteArray data2send = QByteArray::number(int_current_yk,16);
+
+    qDebug()<<"yk data2send is :"<<data2send;
 
     int id=1;
 
     QByteArray  msg = msg_processor->packer(data2send,id);
 
-    qDebug()<<"sending yk...";
+    qDebug()<<"sending yk... is : "<<current_yk;
 
     server1->SendMsg(socket_map.first(),&msg);
 

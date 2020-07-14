@@ -70,6 +70,8 @@ private:
     Ui::Widget *ui;
 
     QMap<int, QTcpSocket*> socket_map;
+    QMap<int, QTcpSocket*> socket_thread_map;
+
 
 
 

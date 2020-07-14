@@ -19,7 +19,7 @@ class tank_model : public QObject
 public:
     explicit tank_model(QObject *parent = nullptr);
     paras tank_paras;
-    double output(double uk);
+    double output(double uk, double yk);
 
 signals:
 
