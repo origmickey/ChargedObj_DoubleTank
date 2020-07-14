@@ -7,7 +7,7 @@ tank_model::tank_model(QObject *parent) : QObject(parent)
 }
 
 
-double tank_model::output(double uk,double yk)
+double tank_model::output(double uk,   double yk)
 {
 
 

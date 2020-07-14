@@ -31,23 +31,26 @@ public:
 
     data_processor * msg_processor;
 
-    QTimer * sampling_timer;
+    QList<QTimer*> * sampling_timer;
 
     QThread * socket_thread;
     QThread * data_proccessing_thread;
-    QThread * sampling_thread;
 
-    ChargedObject * server1;
-    ChargedObject * server2;
+    QList<QThread*>  * sampling_thread;
 
-    QQueue<QByteArray> * yk_queue;
+    ChargedObject * server;
 
-    tank_model * tank_model1;
 
-    double current_yk;
+
+    QList<tank_model*> * tank;
+
+
+
+    QList<double> * current_yk;
 
 signals:
-    void StartSampling(int msec);
+    void StartSampling0(int msec);
+    void StartSampling1(int msec);
 
     void ProccessingCall(QByteArray data);
 
@@ -56,15 +59,14 @@ public slots:
     void SlotConnect(int handle, QTcpSocket *socket);
     void on_startlistening_clicked();
     void SlotReadData(int handle, const QByteArray &data);
-    void Sampling();
+    void Sampling0();
+    void Sampling1();
 
     void GetValidData(QByteArray id , QByteArray proccessed_data);
 
 
 private slots:
     void on_send2client_clicked();
-
-    void on_sampling_clicked();
 
 private:
     Ui::Widget *ui;

@@ -21,15 +21,16 @@ Widget::~Widget()
     data_proccessing_thread->wait();
     data_proccessing_thread->quit();
 
-    sampling_thread->wait();
-    sampling_thread->quit();
+    sampling_thread->at(0)->wait();
+    sampling_thread->at(1)->quit();
 
-
+    delete tank;
+    delete current_yk;
 
     delete ui;
 
-    delete server1;
-    delete server2;
+    delete server;
+
 
     delete msg_processor;
 
@@ -39,9 +40,6 @@ Widget::~Widget()
 
     delete sampling_timer;
 
-    delete yk_queue;
-
-    delete tank_model1;
 
 }
 
@@ -52,8 +50,8 @@ void Widget::Init()
 //    LogInfo.sprintf("%p", QThread::currentThread());
 //    qDebug() <<"MainthreadID : "<<LogInfo;
 
-    server1 = new  ChargedObject;
-    server2 = new  ChargedObject;
+    server = new  ChargedObject;
+
 
     msg_processor = new data_processor;
 
@@ -67,28 +65,51 @@ void Widget::Init()
 
     data_proccessing_thread->start();
 
-    sampling_thread = new QThread;
+    QThread * sampling_thread0 = new QThread;
 
-    sampling_timer = new QTimer;
+    QThread * sampling_thread1 = new QThread;
 
-    sampling_timer->moveToThread(sampling_thread);
+    sampling_thread = new QList<QThread*>;
 
-    yk_queue = new QQueue<QByteArray>;
+    sampling_thread->append(sampling_thread0);
+    sampling_thread->append(sampling_thread1);
 
-    tank_model1 = new tank_model;
+    QTimer  * sampling_timer0 = new QTimer;
+    QTimer  * sampling_timer1 = new QTimer;
 
-    current_yk = 0;
+    sampling_timer = new QList<QTimer*>;
+
+    sampling_timer->append(sampling_timer0);
+    sampling_timer->append(sampling_timer1);
+
+    sampling_timer->at(0)->moveToThread(sampling_thread->at(0));
+    sampling_timer->at(1)->moveToThread(sampling_thread->at(1));
+
+    tank =  new QList<tank_model*>();
+
+    tank_model  * tank0 = new tank_model;
+    tank_model * tank1 = new tank_model;
+
+    tank->append(tank0);
+    tank->append(tank1);
+
+    current_yk =  new QList<double>();
+    double current_yk0 = 0;
+    double current_yk1 = 0;
+    current_yk->append(current_yk0);
+    current_yk->append(current_yk1);
+
+
 
 }
 
 void Widget::on_startlistening_clicked()
 {
 
-    connect(server1,&ChargedObject::ClientConnected,this,&Widget::SlotConnect);
-    connect(server2,&ChargedObject::ClientConnected,this,&Widget::SlotConnect);
+    connect(server,&ChargedObject::ClientConnected,this,&Widget::SlotConnect);
 
-    server1->listen(QHostAddress::Any, 9999);
-    server2->listen(QHostAddress::Any, 9998);
+
+    server->listen(QHostAddress::Any, 9999);
 
 }
 
@@ -117,41 +138,80 @@ void Widget::SlotReadData(int handle, const QByteArray &data)
 
 void Widget::GetValidData(QByteArray id, QByteArray proccessed_data)
 {
+    int index = msg_processor->id_list.indexOf(id);
+    switch (index) {
+    case 0: {
+        qDebug()<<"got uk0";
+        bool ok;
+
+        int int_uk = proccessed_data.toInt(&ok, 16);
+
+        double times = 1000;
+        double double_uk = int_uk;
+
+        double real_uk = double_uk / times;
+
+        qDebug()<<"real_uk0 is !!!!!!!!!!!!!!!!!:"<< real_uk;
+
+        current_yk->replace(0, tank->at(0)->output(real_uk,current_yk->at(0)));
+
+        qDebug()<< "current_yk0 is : "<<current_yk->at(0);
+
+    }
+    case 1: {
+        qDebug()<<"got yk1";
+    }
+    case 2: {
+        qDebug()<<"got start_adjustment order for tank0";
+        //处理命令帧
+               qDebug()<<"开始调节";
+               connect(this , SIGNAL(StartSampling0(int)),sampling_timer->at(0),SLOT(start(int)));
+
+               connect(sampling_timer->at(0),SIGNAL(timeout()),this,SLOT(Sampling0()));
+
+               sampling_thread->at(0)->start();
+
+               emit StartSampling0(500);
+    }
+    case 3: {
+        qDebug()<<"got uk1";
+        bool ok;
+
+        int int_uk = proccessed_data.toInt(&ok, 16);
+
+        double times = 1000;
+        double double_uk = int_uk;
+
+        double real_uk = double_uk / times;
+
+        qDebug()<<"real_uk1 is !!!!!!!!!!!!!!!!!:"<< real_uk;
+
+        current_yk->replace(1, tank->at(1)->output(real_uk,current_yk->at(1)));
+
+        qDebug()<< "current_yk1 is : "<<current_yk->at(1);
+    }
+    case 4: {
+        qDebug()<<"got yk2";
+    }
+    case 5: {
+        qDebug()<<"got start_adjustment order for tank1";
+
+        //处理命令帧
+               qDebug()<<"开始调节";
+               connect(this , SIGNAL(StartSampling1(int)),sampling_timer->at(1),SLOT(start(int)));
+
+               connect(sampling_timer->at(1),SIGNAL(timeout()),this,SLOT(Sampling1()));
+
+               sampling_thread->at(1)->start();
+
+               emit StartSampling1(500);
+    }
+
+    }
+
+
     qDebug()<<"GetValidData id is :"<<id;
 
-    if(id==msg_processor->id_list.at(2))
-    {//处理命令帧
-       qDebug()<<"开始调节";
-       connect(this , SIGNAL(StartSampling(int)),sampling_timer,SLOT(start(int)));
-
-       connect(sampling_timer,SIGNAL(timeout()),this,SLOT(Sampling()));
-
-       sampling_thread->start();
-
-       emit StartSampling(500);
-
-
-    }
-    else
-    {//不是命令帧的话，就处理正常数据帧
-//    qDebug()<<"proccessed_data is : "<<proccessed_data;
-
-    bool ok;
-
-    int int_uk = proccessed_data.toInt(&ok, 16);
-
-    double times = 1000;
-    double double_uk = int_uk;
-
-    double real_uk = double_uk / times;
-
-    qDebug()<<"real_uk is :"<< real_uk;
-
-    current_yk = tank_model1->output(real_uk,current_yk);
-
-    qDebug()<< "current_yk is : "<<current_yk;
-
-    }
 }
 
 void Widget::on_send2client_clicked()
@@ -165,45 +225,54 @@ void Widget::on_send2client_clicked()
 
     QByteArray  msg2 = msg_processor->packer(data2send2,id);
 
-    server1->SendMsg(socket_map.first(),&msg2);
+    server->SendMsg(socket_map.first(),&msg2);
 }
 
-void Widget::on_sampling_clicked()
-{
-//    QString LogInfo;
-//    LogInfo.sprintf("%p", QThread::currentThread());
-//    qDebug() <<"Main threadID : "<<LogInfo;
-
-    connect(this , SIGNAL(StartSampling(int)),sampling_timer,SLOT(start(int)));
-
-    connect(sampling_timer,SIGNAL(timeout()),this,SLOT(Sampling()));
-
-    sampling_thread->start();
-
-    emit StartSampling(500);
 
 
-}
-
-void Widget::Sampling()
+void Widget::Sampling0()
 {
  //发送当前yk给控制器
     int times = 1000;
 
-    int int_current_yk = current_yk * times;
+    int int_current_yk0 = current_yk->at(0) * times;
 
-    qDebug()<<"int_current_yk is : "<<current_yk;
+    qDebug()<<"int_current_yk0 is : "<<current_yk->at(0);
 
-    QByteArray data2send = QByteArray::number(int_current_yk,16);
+    QByteArray data2send = QByteArray::number(int_current_yk0,16);
 
-    qDebug()<<"yk data2send is :"<<data2send;
+    qDebug()<<"yk0 data2send is :"<<data2send;
 
     int id=1;
 
     QByteArray  msg = msg_processor->packer(data2send,id);
 
-    qDebug()<<"sending yk... is : "<<current_yk;
+    qDebug()<<"sending yk0... is : "<<current_yk->at(0);
 
-    server1->SendMsg(socket_map.first(),&msg);
+    server->SendMsg(socket_map.first(),&msg);
 
 }
+
+void Widget::Sampling1()
+{
+ //发送当前yk给控制器
+    int times = 1000;
+
+    int int_current_yk1 = current_yk->at(1) * times;
+
+    qDebug()<<"int_current_yk1 is : "<<current_yk->at(1);
+
+    QByteArray data2send = QByteArray::number(int_current_yk1,16);
+
+    qDebug()<<"yk1 data2send is :"<<data2send;
+
+    int id=4;
+
+    QByteArray  msg = msg_processor->packer(data2send,id);
+
+    qDebug()<<"sending yk1... is : "<<current_yk->at(1);
+
+    server->SendMsg(socket_map.first(),&msg);
+
+}
+
