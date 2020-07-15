@@ -181,6 +181,8 @@ void Widget::GetValidData(QByteArray id, QByteArray proccessed_data)
 
                connect(sampling_timer->at(0),SIGNAL(timeout()),this,SLOT(Sampling0()));
 
+               connect(this , SIGNAL(StopSampling0()),sampling_timer->at(0),SLOT(stop()));
+
                sampling_thread->at(0)->start();
 
                emit StartSampling0(500);
@@ -220,11 +222,23 @@ void Widget::GetValidData(QByteArray id, QByteArray proccessed_data)
 
                connect(sampling_timer->at(1),SIGNAL(timeout()),this,SLOT(Sampling1()));
 
+               connect(this , SIGNAL(StopSampling1()),sampling_timer->at(1),SLOT(stop()));
+
                sampling_thread->at(1)->start();
 
                emit StartSampling1(500);
 
                break;
+    }
+    case 6:{
+        qDebug()<<"got stop_adjustment order for tank0";
+        emit StopSampling0();
+        break;
+    }
+    case 7:{
+        qDebug()<<"got stop_adjustment order for tank1";
+        emit StopSampling1();
+        break;
     }
 
     }
@@ -292,7 +306,19 @@ void Widget::Sampling1()
 
     qDebug()<<"sending yk1... is : "<<current_yk->at(1);
 
-    server->SendMsg(socket_map.first(),&msg);
+    server->SendMsg(socket_map.last(),&msg);
 
 }
 
+
+void Widget::on_stop_sampling0_clicked()
+{
+    qDebug()<<"stop 00000000000000000000000000";
+    emit StopSampling0();
+}
+
+void Widget::on_stop_sampling1_clicked()
+{
+    qDebug()<<"stop 1111111111111111111111111111";
+    emit StopSampling1();
+}

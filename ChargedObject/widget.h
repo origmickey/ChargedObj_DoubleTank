@@ -53,6 +53,8 @@ public:
 signals:
     void StartSampling0(int msec);
     void StartSampling1(int msec);
+    void StopSampling0();
+    void StopSampling1();
 
     void ProccessingCall(QByteArray data);
 
@@ -69,6 +71,10 @@ public slots:
 
 private slots:
     void on_send2client_clicked();
+
+    void on_stop_sampling0_clicked();
+
+    void on_stop_sampling1_clicked();
 
 private:
     Ui::Widget *ui;

@@ -52,6 +52,32 @@
     <string>sampling</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="stop_sampling0">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>330</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>stop_sampling0</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="stop_sampling1">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>410</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>stop_sampling1</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

@@ -22,6 +22,8 @@ public:
     QPushButton *startlistening;
     QPushButton *send2client;
     QPushButton *sampling;
+    QPushButton *stop_sampling0;
+    QPushButton *stop_sampling1;
 
     void setupUi(QWidget *Widget)
     {
@@ -37,6 +39,12 @@ public:
         sampling = new QPushButton(Widget);
         sampling->setObjectName(QString::fromUtf8("sampling"));
         sampling->setGeometry(QRect(130, 230, 93, 28));
+        stop_sampling0 = new QPushButton(Widget);
+        stop_sampling0->setObjectName(QString::fromUtf8("stop_sampling0"));
+        stop_sampling0->setGeometry(QRect(150, 330, 93, 28));
+        stop_sampling1 = new QPushButton(Widget);
+        stop_sampling1->setObjectName(QString::fromUtf8("stop_sampling1"));
+        stop_sampling1->setGeometry(QRect(190, 410, 93, 28));
 
         retranslateUi(Widget);
 
@@ -49,6 +57,8 @@ public:
         startlistening->setText(QApplication::translate("Widget", "\345\274\200\345\247\213\347\233\221\345\220\254", nullptr));
         send2client->setText(QApplication::translate("Widget", "send2client", nullptr));
         sampling->setText(QApplication::translate("Widget", "sampling", nullptr));
+        stop_sampling0->setText(QApplication::translate("Widget", "stop_sampling0", nullptr));
+        stop_sampling1->setText(QApplication::translate("Widget", "stop_sampling1", nullptr));
     } // retranslateUi
 
 };

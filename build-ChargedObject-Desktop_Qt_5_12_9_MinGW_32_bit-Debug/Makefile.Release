@@ -1154,7 +1154,19 @@ release/widget.o: ../../ChargedObj_DoubleTank/ChargedObject/widget.cpp ../../Cha
 		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QString \
 		../../ChargedObj_DoubleTank/ChargedObject/Library/JQLibrary/include/JQChecksum.h \
 		../../ChargedObj_DoubleTank/ChargedObject/tank_model.h \
-		ui_widget.h
+		ui_widget.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QVariant \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QApplication \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qapplication.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcoreapplication.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qeventloop.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qdesktopwidget.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qguiapplication.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qinputmethod.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QPushButton \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qpushbutton.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qabstractbutton.h \
+		E:/software/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qicon.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\widget.o ..\..\ChargedObj_DoubleTank\ChargedObject\widget.cpp
 
 release/moc_chargedobject.o: release/moc_chargedobject.cpp 
