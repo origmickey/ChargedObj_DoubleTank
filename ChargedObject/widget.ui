@@ -16,66 +16,14 @@
   <widget class="QPushButton" name="startlistening">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>110</y>
+     <x>340</x>
+     <y>270</y>
      <width>93</width>
      <height>28</height>
     </rect>
    </property>
    <property name="text">
     <string>开始监听</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="send2client">
-   <property name="geometry">
-    <rect>
-     <x>380</x>
-     <y>310</y>
-     <width>93</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>send2client</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="sampling">
-   <property name="geometry">
-    <rect>
-     <x>130</x>
-     <y>230</y>
-     <width>93</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>sampling</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="stop_sampling0">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>330</y>
-     <width>93</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>stop_sampling0</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="stop_sampling1">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>410</y>
-     <width>93</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>stop_sampling1</string>
    </property>
   </widget>
  </widget>

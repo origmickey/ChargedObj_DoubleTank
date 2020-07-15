@@ -8,6 +8,7 @@ Widget::Widget(QWidget *parent)
 
     ui->setupUi(this);
 
+
     this->Init();
 
 
@@ -49,6 +50,7 @@ void Widget::Init()
 //    QString LogInfo;
 //    LogInfo.sprintf("%p", QThread::currentThread());
 //    qDebug() <<"MainthreadID : "<<LogInfo;
+
 
     server = new  ChargedObject;
 
@@ -248,20 +250,6 @@ void Widget::GetValidData(QByteArray id, QByteArray proccessed_data)
 
 }
 
-void Widget::on_send2client_clicked()
-{
-    int u2=14;
-
-    QByteArray data2send2 = QByteArray::number(u2,16);
-
-    int id=1;
-
-
-    QByteArray  msg2 = msg_processor->packer(data2send2,id);
-
-    server->SendMsg(socket_map.first(),&msg2);
-}
-
 
 
 void Widget::Sampling0()
@@ -311,14 +299,4 @@ void Widget::Sampling1()
 }
 
 
-void Widget::on_stop_sampling0_clicked()
-{
-    qDebug()<<"stop 00000000000000000000000000";
-    emit StopSampling0();
-}
 
-void Widget::on_stop_sampling1_clicked()
-{
-    qDebug()<<"stop 1111111111111111111111111111";
-    emit StopSampling1();
-}

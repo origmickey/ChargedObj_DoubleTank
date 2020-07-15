@@ -70,11 +70,6 @@ public slots:
 
 
 private slots:
-    void on_send2client_clicked();
-
-    void on_stop_sampling0_clicked();
-
-    void on_stop_sampling1_clicked();
 
 private:
     Ui::Widget *ui;
